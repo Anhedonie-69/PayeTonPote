@@ -1,0 +1,31 @@
+{{ form_start(form) }}
+
+    <div class="input-field col s12 l6">
+        {{ form_widget(form.name)}}
+        {{ form_label(form.name)}}
+    </div>
+
+    <div class="input-field col s12 l6">
+        {{ form_widget(form.email) }}
+        {{ form_label(form.email)}}
+    </div>
+
+    <div class="input-field col s12 l6">
+        {{ form_widget(form.title) }}
+        {{ form_label(form.title)}}
+    </div>
+
+    <div class="input-field col s12">
+        {{ form_widget(form.content) }}
+    </div>
+
+    <div class="input-field col s12 l6">
+        {{ form_widget(form.goal) }}
+        {{ form_label(form.goal) }}
+    </div>
+
+    <button class="btn btn-large waves-effect waves-light pink lighten-1 col s12" style="margin-top: 20px;" type="submit" name="action">
+        {{ button_label|default('Validez la campagne') }}
+    </button>
+
+{{ form_end(form) }}

@@ -1,0 +1,58 @@
+{{ form_start(form) }}
+    <h5 class="center">Votre identité</h5>
+    
+    <div class="input-field col s12 l6">
+        {{ form_row(form.participant.email) }}
+    </div>
+    
+    <div class="input-field col s12 l6">
+        {{ form_row(form.amount) }}
+    </div>
+        <p>
+            <label>
+                {{ form_widget(form.participant.isIdentityHidden) }}
+                <span>{{ form_label(form.participant.isIdentityHidden) }}</span>
+            </label>
+        
+        <p>
+            <label>
+                {{ form_widget(form.participant.isAmountHidden) }}
+                <span>{{ form_label(form.participant.isAmountHidden) }}</span>
+            </label>
+        </p>
+    <div class="clearfix"></div>
+    <h5 class="center">Paiement</h5>
+    <div class="input-field col s12">
+        <input id="card_name" type="text" class="validate">
+        <label for="card_name">Nom sur la carte</label>
+    </div>
+    <div class="input-field col s12">
+        <input id="card_number" type="text" class="validate">
+        <label for="card_number">Numéro de la carte</label>
+    </div>
+    <div class="input-field col s12 l8">
+        <input id="card_expiration_date" type="date" class="validate">
+        <label for="card_expiration_date">Date d'expiration</label>
+    </div>
+    <div class="input-field col s12 l4">
+        <input id="card_cvv" type="text" class="validate">
+        <label for="card_cvv">CVV</label>
+    </div>
+    <div class="input-field col s12 l6">
+        <a href="{{ path('app_campaign_show', {'id': campaign.id}) }}"
+           class="btn btn-large waves-effect waves-light grey col s12">
+            Annuler
+        </a>
+    </div>
+
+    {% if campaign.getTotalCollected() >= campaign.goal %}
+        <p>Objectif atteint 🎉</p>
+    {% else %}
+        <div class="input-field col s12 l6">
+            <button class="btn btn-large waves-effect waves-light pink lighten-1 col s12" type="submit">
+                Participer
+            </button>
+        </div>
+    {% endif %}
+
+{{ form_end(form) }}
